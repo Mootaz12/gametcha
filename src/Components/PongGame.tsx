@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const SinglePlayerMode: React.FC = () => {
+const PongGame: React.FC = () => {
   const boardWidth = 800;
   const boardHeight = 500;
   let context: CanvasRenderingContext2D;
@@ -49,7 +49,10 @@ const SinglePlayerMode: React.FC = () => {
     const distanceY = circle.y - closestY;
 
     // Check if the distance is less than the radius of the ball
-    return (distanceX * distanceX + distanceY * distanceY) < (circle.radius * circle.radius);
+    return (
+      distanceX * distanceX + distanceY * distanceY <
+      circle.radius * circle.radius
+    );
   };
 
   const stopGame = (message: string) => {
@@ -82,7 +85,8 @@ const SinglePlayerMode: React.FC = () => {
     player2.y += player2.velocityY;
 
     if (player2.y < 0) player2.y = 0;
-    else if (player2.y + player2.height > boardHeight) player2.y = boardHeight - player2.height;
+    else if (player2.y + player2.height > boardHeight)
+      player2.y = boardHeight - player2.height;
 
     // Player movement
     if (player1.velocityY !== 0) {
@@ -117,7 +121,7 @@ const SinglePlayerMode: React.FC = () => {
     // Update ball position
     ball.x += ball.velocityX;
     ball.y += ball.velocityY;
-    
+
     // Draw ball (white, circle)
     context.fillStyle = "#FFFFFF"; // White ball color
     context.beginPath();
@@ -132,12 +136,16 @@ const SinglePlayerMode: React.FC = () => {
     // Ball collision with paddles
     if (detectCircleRectCollision(ball, player1)) {
       ball.velocityX = Math.abs(ball.velocityX);
-      ball.velocityY = (ball.y - (player1.y + player1.height / 2)) / (player1.height / 2) * 4;
+      ball.velocityY =
+        ((ball.y - (player1.y + player1.height / 2)) / (player1.height / 2)) *
+        4;
       ball.velocityX *= 1.1;
       ball.velocityY *= 1.1;
     } else if (detectCircleRectCollision(ball, player2)) {
       ball.velocityX = -Math.abs(ball.velocityX);
-      ball.velocityY = (ball.y - (player2.y + player2.height / 2)) / (player2.height / 2) * 4;
+      ball.velocityY =
+        ((ball.y - (player2.y + player2.height / 2)) / (player2.height / 2)) *
+        4;
       ball.velocityX *= 1.1;
       ball.velocityY *= 1.1;
     }
@@ -194,7 +202,6 @@ const SinglePlayerMode: React.FC = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-800 via-teal-500 to-orange-400">
       <div className="text-center text-white">
-       
         <div className="relative mt-6">
           <canvas
             id="board"
@@ -216,4 +223,4 @@ const SinglePlayerMode: React.FC = () => {
   );
 };
 
-export default SinglePlayerMode;
+export default PongGame;

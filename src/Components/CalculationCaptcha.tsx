@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const CalculationHintCaptcha: React.FC = () => {
+const CalculationCaptcha: React.FC = () => {
   const [x, setX] = useState<number>(Math.floor(Math.random() * 10) + 1);
   const [y, setY] = useState<number>(Math.floor(Math.random() * 10) + 1);
   const [z, setZ] = useState<number>(Math.floor(Math.random() * 10) + 1);
@@ -9,7 +9,6 @@ const CalculationHintCaptcha: React.FC = () => {
   const [feedback, setFeedback] = useState<string>("");
 
   useEffect(() => {
-    // Generate a random hint based on the equation
     const result = x - y - z;
     const randomHintType = Math.floor(Math.random() * 3);
     if (randomHintType === 0) {
@@ -80,4 +79,4 @@ const CalculationHintCaptcha: React.FC = () => {
   );
 };
 
-export default CalculationHintCaptcha;
+export default CalculationCaptcha;
