@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TicTacToeWithAI: React.FC = () => {
+const TicTacToe: React.FC = () => {
   const [board, setBoard] = useState<string[]>(Array(9).fill(""));
   const [isPlayerTurn, setIsPlayerTurn] = useState<boolean>(true);
   const [winner, setWinner] = useState<string | null>(null);
@@ -150,4 +150,4 @@ const TicTacToeWithAI: React.FC = () => {
   );
 };
 
-export default TicTacToeWithAI;
+export default TicTacToe;
