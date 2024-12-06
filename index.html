@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+    <style>
+      /* Oceanic gradient background */
+      body {
+        margin: 0;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          #00bcd4,
+          #3e8e41,
+          #f44336,
+          #4fc3f7,
+          #004d7a
+        );
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+        overflow: hidden; /* Prevent accidental scroll */
+      }
+
+      /* Gradient animation */
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Semi-transparent overlay for better component visibility */
+      #overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3); /* Soft light overlay */
+        z-index: 1; /* Below components, above background */
+        pointer-events: none; /* Allow interaction with components */
+      }
+
+      /* React app container */
+      #root {
+        position: relative;
+        z-index: 2; /* Ensure components render above the overlay */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      /* Styling for components (optional: add shadow for better visibility) */
+      .component {
+        padding: 20px;
+        background: rgba(
+          255,
+          255,
+          255,
+          0.85
+        ); /* Light background for contrast */
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        color: #333; /* Text color for readability */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Gradient background -->
+    <div id="overlay"></div>
+
+    <!-- React app will render here -->
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

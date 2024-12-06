@@ -1,0 +1,144 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+.cardWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 150px); /* 2 cards per row */
+  grid-template-rows: repeat(2, 150px); /* 2 rows */
+  gap: 15px;
+  margin-bottom: 40px;
+  justify-items: center;
+  align-items: center;
+}
+
+.colorCard {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px; /* Rounded corners for smoother look */
+  cursor: pointer;
+  transition: all 0.2s ease; /* Smooth transition for animations */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #222; /* Darker background for cards */
+  border: 3px solid rgba(255, 255, 255, 0.2); /* Subtle border to enhance the glow effect */
+}
+
+/* Flashing effect for the sequence */
+.flash {
+  animation: flash 0.5s ease-in-out infinite alternate;
+  box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.8),
+    0 0 30px 20px rgba(255, 255, 255, 0.6); /* Neon glow */
+}
+
+@keyframes flash {
+  0% {
+    transform: scale(1);
+    background-color: white;
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    transform: scale(1.1);
+    background-color: inherit;
+    box-shadow: 0 0 35px 20px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Press effect for user interaction */
+.colorCard.press {
+  animation: press 0.2s ease-in-out forwards;
+}
+
+@keyframes press {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    transform: scale(0.95);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Color-specific styles with neon glow */
+.red {
+  background-color: red;
+  box-shadow: 0 0 20px 5px red;
+}
+
+.green {
+  background-color: green;
+  box-shadow: 0 0 20px 5px green;
+}
+
+.yellow {
+  background-color: yellow;
+  box-shadow: 0 0 20px 5px yellow;
+}
+
+.blue {
+  background-color: blue;
+  box-shadow: 0 0 20px 5px blue;
+}
+
+/* Hover effect for color cards to intensify the glow */
+.colorCard:hover {
+  box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.5),
+    0 0 40px 20px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Start button styles */
+.startButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 255, 0.5);
+  transition: all 0.2s ease;
+}
+
+.startButton:hover {
+  box-shadow: 0 0 30px 15px rgba(0, 0, 255, 0.7);
+}
+
+/* Winning and game over styles */
+.won {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px 15px rgba(0, 255, 0, 0.7);
+}
+
+.level {
+  font-size: 30px;
+  color: white;
+  margin-top: 20px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
